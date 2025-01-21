@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,6 +60,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         });
 
         category = getIntent().getStringExtra("category");
+        Log.e("Catergorud","Category is:  "+category);
         setUpToolBar();
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -110,6 +112,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
             // Get the LatLng from the model's getLocation method
             LatLng latLng = locationModel.getLocation();
 
+            Log.e("ds","line 115: "+latLng.toString());
             // Add marker with the title
             Marker marker = googleMap.addMarker(new MarkerOptions()
                     .position(latLng)
@@ -123,6 +126,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         googleMap.setOnMarkerClickListener(marker -> {
             // Retrieve the EntityLocationModel from the marker's tag
             EntityLocationModel locationModel = (EntityLocationModel) marker.getTag();
+
 
             if(locationModel==null)
                 return true;

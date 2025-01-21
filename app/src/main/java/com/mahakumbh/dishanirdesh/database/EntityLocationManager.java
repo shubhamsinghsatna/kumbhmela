@@ -32,8 +32,8 @@ public class EntityLocationManager {
             COLUMN_CATEGORY + " TEXT NOT NULL, " +
             COLUMN_TITLE + " TEXT NOT NULL, " +
             COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
-            COLUMN_LATITUDE + " REAL NOT NULL, " +
-            COLUMN_LONGITUDE + " REAL NOT NULL, " +
+            COLUMN_LATITUDE + " TEXT NOT NULL, " +
+            COLUMN_LONGITUDE + " TEXT NOT NULL, " +
             COLUMN_MENU + " INTEGER, " +
             COLUMN_IMAGE + " INTEGER, " +
             COLUMN_ADDRESS + " TEXT, " +
@@ -77,8 +77,8 @@ public class EntityLocationManager {
         values.put(COLUMN_CATEGORY, model.getCategory());
         values.put(COLUMN_TITLE, model.getTitle());
         values.put(COLUMN_DESCRIPTION, model.getDescription());
-        values.put(COLUMN_LATITUDE, model.getLatitude());
-        values.put(COLUMN_LONGITUDE, model.getLongitude());
+        values.put(COLUMN_LATITUDE, String.valueOf(model.getLatitude()));
+        values.put(COLUMN_LONGITUDE, String.valueOf(model.getLongitude()));
         values.put(COLUMN_MENU, model.getMenu());
         values.put(COLUMN_IMAGE, model.getImage());
         values.put(COLUMN_ADDRESS, model.getAddress());
@@ -116,8 +116,8 @@ public class EntityLocationManager {
         model.setCategory(cursor.getString(cursor.getColumnIndex(COLUMN_CATEGORY)));
         model.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
         model.setDescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
-        model.setLatitude(cursor.getLong(cursor.getColumnIndex(COLUMN_LATITUDE)));
-        model.setLongitude(cursor.getLong(cursor.getColumnIndex(COLUMN_LONGITUDE)));
+        model.setLatitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LATITUDE))));
+        model.setLongitude(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_LONGITUDE))));
         model.setMenu(cursor.getInt(cursor.getColumnIndex(COLUMN_MENU)));
         model.setImage(cursor.getInt(cursor.getColumnIndex(COLUMN_IMAGE)));
         model.setAddress(cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS)));

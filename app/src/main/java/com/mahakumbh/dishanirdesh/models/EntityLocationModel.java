@@ -9,8 +9,8 @@ public class EntityLocationModel {
     String category; //ENUM
     String title;
     String description;
-    long latitude ;
-    long longitude ;
+    double latitude ;
+    double longitude ;
     int menu; //can be null
     int image;
     String address;
@@ -21,7 +21,7 @@ public class EntityLocationModel {
     public EntityLocationModel() {
     }
 
-    public EntityLocationModel(String category, String title, String description, long latitude, long longitude, int menu, int image, String address, String mobileNumber, String tags) {
+    public EntityLocationModel(String category, String title, String description, double latitude, double longitude, int menu, int image, String address, String mobileNumber, String tags) {
         this.category = category;
         this.title = title;
         this.description = description;
@@ -34,7 +34,7 @@ public class EntityLocationModel {
         this.tags = tags;
     }
 
-    public EntityLocationModel(long id, String category, String title, String description, long latitude, long longitude, int menu, int image, String address, String mobileNumber, String tags) {
+    public EntityLocationModel(long id, String category, String title, String description, double latitude, double longitude, int menu, int image, String address, String mobileNumber, String tags) {
         this.id = id;
         this.category = category;
         this.title = title;
@@ -48,7 +48,7 @@ public class EntityLocationModel {
         this.tags = tags;
     }
 
-    public EntityLocationModel(String category, String title, String description, long latitude, long longitude, int menu, int image) {
+    public EntityLocationModel(String category, String title, String description, double latitude, double longitude, int menu, int image) {
         this.category = category;
         this.title = title;
         this.description = description;
@@ -56,6 +56,15 @@ public class EntityLocationModel {
         this.longitude = longitude;
         this.menu = menu;
         this.image = image;
+    }
+
+    public EntityLocationModel(int i, String title, String description, double latitude, double longitude, String tags) {
+        this.id = i;
+        this.title = title;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.tags = tags;
     }
 
     public String getCategory() {
@@ -82,19 +91,19 @@ public class EntityLocationModel {
         this.description = description;
     }
 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
