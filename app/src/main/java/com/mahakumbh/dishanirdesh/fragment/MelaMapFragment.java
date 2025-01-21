@@ -61,9 +61,6 @@ public class MelaMapFragment extends Fragment {
         cv_food = Root.findViewById(R.id.cv_food);
         cv_food.setOnClickListener(v->openLocation(String.valueOf(LocationCategories.FOOD)));
 
-        cv_food = Root.findViewById(R.id.cv_food);
-        cv_food.setOnClickListener(v->openLocation(String.valueOf(LocationCategories.FOOD)));
-
         cv_hotel = Root.findViewById(R.id.cv_hotel);
         cv_hotel.setOnClickListener(v->openLocation(String.valueOf(LocationCategories.HOTEL)));
 

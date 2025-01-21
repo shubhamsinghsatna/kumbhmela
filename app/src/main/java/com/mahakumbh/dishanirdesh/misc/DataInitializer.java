@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataInitializer {
-    private Context context;
-    private EntityLocationManager dataManager;
+    private final Context context;
+    private final EntityLocationManager dataManager;
 
     public DataInitializer(Context context) {
         this.context = context;
@@ -205,7 +205,7 @@ public class DataInitializer {
 
 
         for (EntityLocationModel model : locationModels) {
-            model.setCategory(LocationCategories.HOTEL.name());
+            model.setCategory(LocationCategories.PARKING.name());
             Log.e("ghat","parking: "+model.getTitle());
             dataManager.insert(model);
         }

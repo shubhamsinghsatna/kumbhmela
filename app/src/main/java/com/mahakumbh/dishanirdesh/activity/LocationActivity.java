@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mahakumbh.dishanirdesh.R;
 import com.mahakumbh.dishanirdesh.database.EntityLocationManager;
+import com.mahakumbh.dishanirdesh.fragment.Location.EntitiesListBottomSheetFragment;
 import com.mahakumbh.dishanirdesh.fragment.Location.MarkerDetailsBottomSheet;
 import com.mahakumbh.dishanirdesh.models.EntityLocationModel;
 
@@ -60,7 +61,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         });
 
         category = getIntent().getStringExtra("category");
-        Log.e("Catergorud","Category is:  "+category);
+        Log.e("cate","Category is:  "+category);
         setUpToolBar();
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -95,6 +96,8 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
         ImageView iv_currentLocation = findViewById(R.id.iv_currentLocation);
         iv_currentLocation.setOnClickListener(v->showCurrentLocation());
+
+
     }
 
     @Override
@@ -232,14 +235,10 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
 
     private List<EntityLocationModel> getLocationsByCategory(String category){
+        List<EntityLocationModel> modelList =dbManager.getLocationsByCategory(category);
+        new EntitiesListBottomSheetFragment(modelList).show(getSupportFragmentManager(),"bottom sheet dialog");
 
-//        List<EntityLocationModel> entityLocations = new ArrayList<>();
-//        entityLocations.add(new EntityLocationModel("Category1", "Title1", "Description1", (long) 28.6139f, (long) 77.2090f, 1, R.drawable.logo));
-//        entityLocations.add(new EntityLocationModel("Category2", "Title2", "Description2", (long) 19.0760f,  (long) 72.8777f, 2, R.drawable.logo));
-//        entityLocations.add(new EntityLocationModel("Category3", "Title3", "Description3",  (long)13.0827f,  (long) 80.2707f, 3, R.drawable.logo));
-
-
-        return dbManager.getLocationsByCategory(category);
+        return modelList;
     }
 
 }

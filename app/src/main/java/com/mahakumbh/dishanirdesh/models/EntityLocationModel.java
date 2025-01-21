@@ -3,7 +3,9 @@ package com.mahakumbh.dishanirdesh.models;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class EntityLocationModel {
+import java.io.Serializable;
+
+public class EntityLocationModel implements Serializable {
     long id;
 
     String category; //ENUM
